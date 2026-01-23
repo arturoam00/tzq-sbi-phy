@@ -33,3 +33,6 @@ pythonVersion = "3.9"
 pythonPlatform = "Linux"
 
 executionEnvironments = [{ root = "src" }]
+
+[project.scripts]
+madminer-dag = "madminer_dag.__main__:main"

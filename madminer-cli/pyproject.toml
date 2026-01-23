@@ -33,3 +33,7 @@ pythonVersion = "3.9"
 pythonPlatform = "Linux"
 
 executionEnvironments = [{ root = "src" }]
+
+[project.scripts]
+madminer = "madminer_cli.__main__:main"
+combine_and_shuffle = "madminer_cli.combine_and_shuffle:main"

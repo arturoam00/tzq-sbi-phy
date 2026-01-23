@@ -5,7 +5,7 @@ import sys
 from typing import List
 
 
-def main(args: List[str]) -> None:
+def main() -> None:
 
     parser = argparse.ArgumentParser(
         prog="combine_and_shuffle",
@@ -14,7 +14,7 @@ def main(args: List[str]) -> None:
     parser.add_argument("files", nargs="+", help="Files to be combined and shuffled")
     parser.add_argument("outfile", type=str, help="Name of output file")
 
-    arguments = parser.parse_args(args)
+    arguments = parser.parse_args()
 
     outfile = arguments.outfile.rstrip(".h5") + ".h5"
 
@@ -24,4 +24,4 @@ def main(args: List[str]) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
