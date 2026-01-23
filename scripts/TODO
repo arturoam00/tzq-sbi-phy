@@ -1,0 +1,2 @@
+Merge prepare generation, run generation and Delphes in one script (one submit file). They are done sequentially anyway and 
+you always restart the workflow from run analysis or later. This way you avoid copying over files several times.

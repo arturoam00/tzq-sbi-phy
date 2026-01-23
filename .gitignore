@@ -11,17 +11,12 @@ __pycache__/
 
 # Output dirs
 dag
-cards
 processes
 logs
-scripts
 
 # Automatically gen files
 *_debug
 nsqso_born.inc
 py.py
-
-# Cluster files
-*.sub
 
 output

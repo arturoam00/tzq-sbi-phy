@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+NGEN="$1"
+TEMPDIR="$2"
+MG_DIR="$3"
+LOG_DIR="$4"
+
+FILENAME="$TEMPDIR"/procdir."$NGEN".tmp
+PROC_DIR=$(cat $FILENAME | awk '{print $1}')
+
+cp -rv $PROC_DIR/* $TMP
+
+"$TMP"/madminer/run.sh $MG_DIR $TMP $LOG_DIR
+
+cp -rfv $TMP/* $PROC_DIR

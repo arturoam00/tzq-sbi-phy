@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# TODO: There's no need to wrap a python script in a bash file, so I can run directly the python script
+set -euo pipefail
+
+NGEN="$1"
+JOBID="$2"
+PROC_DIR="$3"
+N_SUBPROCESSES="$4"
+BENCHMARK="$5"
+RWG_CARD="$6"
+TMPDIR="$7"
+LOGS_DIR="$8"/POST_prepare_generation.log
+
+./scripts/_py/POST_prepare_generation.py "$NGEN" "$JOBID" "$PROC_DIR" "$N_SUBPROCESSES" "$BENCHMARK" --rwg-card "$RWG_CARD" --tmp-dir "$TMPDIR" > "$LOGS_DIR" 2>&1

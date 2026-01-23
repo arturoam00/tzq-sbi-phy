@@ -1,0 +1,20 @@
+executable              = scripts/run_setup
+arguments               = $(SETUP_CONF) $(SETUP_FILE) $(LOG_DIR)
+
+request_cpus            = 1
+request_disk            = 500M
+request_memory          = 1024M
+
+log                     = $(LOG_DIR)/run_setup.log
+output                  = $(LOG_DIR)/run_setup.out
+error                   = $(LOG_DIR)/run_setup.err
+
+getenv                  = True
+
++UseOS                  = "el9"
++JobCategory            = "short"
+
+queue 1
+
+
+

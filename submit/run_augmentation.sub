@@ -1,0 +1,17 @@
+executable              = scripts/run_augmentation
+arguments               = $(EVENTS_FILE) $(OUTDIR) $(THETA0) $(THETA1) $(THETA_TEST) $(N_SAMPLES) $(N_SAMPLES_TEST) $(NPROC) $(LOG_DIR)
+
+request_cpus            = $(NPROC)
+request_disk            = 4GB
+request_memory          = 4GB
+
+log                     = $(LOG_DIR)/run_augmentation.log
+output                  = $(LOG_DIR)/run_augmentation.out
+error                   = $(LOG_DIR)/run_augmentation.err
+
+getenv                  = True
+
++UseOS                  = "el9"
++JobCategory            = "medium"
+
+queue 1

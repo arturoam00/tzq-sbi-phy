@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail
+
+EVENTS_FILE="$1"
+OUTDIR="$2"
+THETA0="$3"
+THETA1="$4"
+THETA_TEST="$5"
+N_SAMPLES="$6"
+N_SAMPLES_TEST="$7"
+N_PROC="$8"
+LOG_DIR="$9"/augmentation.log
+
+mkdir -p $OUTDIR
+
+cp -v $EVENTS_FILE $TMP/events.h5
+
+madminer -VVV --log-file "$LOG_DIR" run_augmentation $TMP/events.h5 $TMP --theta0 $THETA0 --theta1 $THETA1 --theta-test $THETA_TEST --n-samples "$N_SAMPLES" --n-samples-test "$N_SAMPLES_TEST" --nproc "$N_PROC" 
+
+rm -vrf $TMP/events.h5
+
+cp -fvr $TMP/* $OUTDIR

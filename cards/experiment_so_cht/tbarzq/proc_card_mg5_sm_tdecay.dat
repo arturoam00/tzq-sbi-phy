@@ -1,0 +1,3 @@
+import model SMEFTsim_top_MwScheme_UFO-massless
+
+generate p p > t~ b j l+ l- $$ w+ w- h SMHLOOP=0 NP=0, (t~ > b~ l- vl~)

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SETUP_FILE="$1"
+CARDS_DIR="$2"
+PROC_DIR="$3" 
+PROC_CARD="$4"
+RUN_CARD="$5"
+PARAM_CARD="$6"
+PYTHIA_CARD="$7"
+BENCHMARK="$8"
+MGDIR="$9"
+LOG_FILE="${10}"/gen.log
+
+mkdir -p $PROC_DIR
+
+madminer --log-file "$LOG_FILE" run_generation "$SETUP_FILE" "$CARDS_DIR" "$TMP"/mgprocess --proc-card "$PROC_CARD" --run-card "$RUN_CARD" --param-card "$PARAM_CARD" --pythia-card "$PYTHIA_CARD" --benchmark "$BENCHMARK" --mg-dir "$MGDIR"
+
+cp -rfv $TMP/mgprocess/* $PROC_DIR

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+
+INFILE="$1"
+OUTFILE="$2"
+LOG_FILE="$3"/setup.log
+
+OUTFILE_TMP=$TMP/out.h5
+
+madminer --log-file "$LOG_FILE" run_setup $INFILE $OUTFILE_TMP
+
+cp -fv $OUTFILE_TMP $OUTFILE 

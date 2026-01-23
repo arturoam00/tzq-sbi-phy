@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SETUP_DIR="$1"
+TMPDIR="$2"
+H5_DIR="$3"
+PROCESSES_DIR="$4"
+LOG_DIR="$5"
+
+mkdir -p "$LOG_DIR" "$SETUP_DIR" "$TMPDIR" "$H5_DIR" "$PROCESSES_DIR"
+
+rm -rvf "$LOG_DIR"/* > "$LOG_DIR"/PRE_run_setup.log 2>&1
+rm -rvf "$SETUP_DIR"/* >> "$LOG_DIR"/PRE_run_setup.log 2>&1
+rm -rvf "$TMPDIR"/* >> "$LOG_DIR"/PRE_run_setup.log 2>&1
+rm -rvf "$H5_DIR"/* >> "$LOG_DIR"/PRE_run_setup.log 2>&1
+rm -rvf "$PROCESSES_DIR"/* >> "$LOG_DIR"/PRE_run_setup.log 2>&1

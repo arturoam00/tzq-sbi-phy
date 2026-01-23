@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -euo pipefail
+
+NGEN="$1"
+OBSERVABLES="$2"
+SETUP_FILE="$3"
+H5_DIR="$4"
+TEMPDIR="$5"
+ROOT_FILES_DIR="$6"
+LOG_DIR="$7"/analysis.log
+
+FILENAME="$TEMPDIR"/procdir."$NGEN".tmp
+PROC_DIR=$(cat $FILENAME | awk '{print $1}')
+BENCHMARK=$(cat $FILENAME | awk '{print $2}')
+
+BASENAME=$(basename $PROC_DIR)
+ROOT_FILE_DIR="$ROOT_FILES_DIR"/"$BASENAME"
+
+OUTFILE="$H5_DIR"/"$BASENAME".h5
+
+OUTFILE_TMP=$TMP/out.h5
+
+madminer --log-file "$LOG_DIR" run_analysis $OBSERVABLES $SETUP_FILE $PROC_DIR $OUTFILE_TMP --benchmark $BENCHMARK --root-files-dir $ROOT_FILE_DIR
+
+cp -fv $OUTFILE_TMP $OUTFILE

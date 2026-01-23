@@ -1,0 +1,20 @@
+# The big disk requirement would come if I first copy the .root file to the scratch space
+# of the node ...
+
+executable              = scripts/run_analysis
+arguments               = $(NGEN) $(OBSERVABLES) $(SETUP_FILE) $(H5_DIR) $(TMP_DIR) $(ROOT_FILES_DIR) $(LOG_DIR)
+
+request_cpus            = 2
+request_disk            = 8GB
+request_memory          = 1GB
+
+log                     = $(LOG_DIR)/run_analysis.log
+output                  = $(LOG_DIR)/run_analysis.out
+error                   = $(LOG_DIR)/run_analysis.err
+
+getenv                  = True
+
++UseOS                  = "el9"
++JobCategory            = "medium"
+
+queue 1
