@@ -1,0 +1,26 @@
+# Environment related stuff
+.envrc
+.venv
+.vscode
+
+# Common ignores
+build
+*.log
+*.egg-info
+__pycache__/
+
+# Output dirs
+cards
+processes
+logs
+scripts
+
+# Automatically gen files
+*_debug
+nsqso_born.inc
+py.py
+
+# Cluster files
+*.sub
+
+output

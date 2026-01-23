@@ -1,0 +1,21 @@
+#!/bin/env bash
+
+if [ -t 0 ]; then
+    stty sane 2>/dev/null
+fi
+
+if ! python3 -c "import madminer_cli" &>/dev/null; then
+    read -p "'madminer_cli' is not installed, do you want to install it with the interpreter $(which python3)? ([yes]/no) " res
+    res=${res,,}
+    if [[ -z "$res" || "$res" == "yes" ]]; then
+        if ! python3 -m pip install . ; then 
+            echo  "Failed to install 'madminer_cli'. Are you in the right directory?"
+            return 1 2>/dev/null
+        fi
+    else
+        echo "Quitting"
+        return 1 2>/dev/null
+    fi
+fi
+
+python3 -m madminer_cli "$@"
