@@ -18,5 +18,6 @@ logs
 *_debug
 nsqso_born.inc
 py.py
+*.html
 
 output
